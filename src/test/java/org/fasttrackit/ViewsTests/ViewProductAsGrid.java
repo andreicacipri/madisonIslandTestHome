@@ -12,12 +12,11 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ViewProductAsGrid extends TestBase {
     @Test
-    public void SeventhScenario() {
+    public void GridView() {
+
         SiteMenu siteMenu = PageFactory.initElements(driver, SiteMenu.class);
-        String nameCategories = "SALE";
-        siteMenu.selectSiteMenuBar(nameCategories, driver);
-        String selected = siteMenu.getSiteMenuBar(nameCategories, driver).getText();
-        System.out.println("Opened " + selected + " page");
+        siteMenu.getMouseHover(driver);
+        siteMenu.clickMouseHoverElectronics(driver);
 
             ProductsGrid productsGrid = PageFactory.initElements(driver,ProductsGrid.class);
             productsGrid.clickOnListViewButton(driver);
