@@ -17,11 +17,12 @@ public class ViewProductAsList extends TestBase {
         siteMenu.getMouseHover(driver);
         siteMenu.clickMouseHoverElectronics(driver);
 
-            ProductsGrid productsGrid = PageFactory.initElements(driver,ProductsGrid.class);
-            productsGrid.clickOnListViewButton(driver);
-            String newView = driver.findElement(By.cssSelector("strong.list")).getText();
-            String correctView = "List";
-            assertThat("the products are still in Grid view. ", newView.toUpperCase(),is(correctView.toUpperCase()));
-        }
+        ProductsGrid productsGrid = PageFactory.initElements(driver, ProductsGrid.class);
+        productsGrid.clickOnListViewButton(driver);
 
+        String newView = driver.findElement(By.cssSelector("strong.list")).getText();
+        String correctView = "List";
+        assertThat("the products are still in Grid view. ", newView.toUpperCase(), is(correctView.toUpperCase()));
     }
+
+}

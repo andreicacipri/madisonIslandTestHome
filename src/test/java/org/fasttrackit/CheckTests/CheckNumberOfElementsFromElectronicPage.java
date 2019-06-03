@@ -1,4 +1,4 @@
-package org.fasttrackit.ViewsTests;
+package org.fasttrackit.CheckTests;
 
 import org.fasttrackit.TestBase;
 import org.fasttrackit.pageobjects.ProductsGrid;
@@ -18,10 +18,10 @@ public class CheckNumberOfElementsFromElectronicPage extends TestBase {
 
         ProductsGrid ElementsNumber = PageFactory.initElements(driver, ProductsGrid.class);
         String numberElements = ElementsNumber.checkTheNumberOfElements();
-         numberElements = numberElements.replaceAll("\\D+","");
-         int intNumberElements= Integer.parseInt(numberElements);
-        System.out.println(""+ElementsNumber.getProductNames().size()+ " ,"+intNumberElements+"");
-        assertThat("The number of products are not correct",ElementsNumber.getProductNames().size(),is (intNumberElements));
+        numberElements = numberElements.replaceAll("\\D+", "");
+        int intNumberElements = Integer.parseInt(numberElements);
+
+        assertThat("The number of products are not correct", ElementsNumber.getProductNames().size(), is(intNumberElements));
         driver.quit();
-         }
     }
+}

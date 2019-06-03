@@ -18,11 +18,11 @@ public class ViewDetailsButtonOnElectronicsPage extends TestBase {
 
         ProductsGrid ViewDetails = PageFactory.initElements(driver, ProductsGrid.class);
         String productName = "MP3 Player with Audio";
-        ViewDetails.getViewDetailsButton(productName, driver);
         ViewDetails.clickOnViewDetails(productName, driver);
         String selectedDetailsProduct = ViewDetails.HeaderCheckPage();
         System.out.println("Opened details page for " + selectedDetailsProduct + " .");
+
         assertThat("View Details page for this product not opened", selectedDetailsProduct, is(productName.toUpperCase()));
-        //driver.quit();
+        driver.quit();
     }
 }

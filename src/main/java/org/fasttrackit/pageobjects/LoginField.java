@@ -14,13 +14,10 @@ public class LoginField {
     @FindBy(xpath = "//button[@title='Login']")
     private WebElement registerButton;
 
-    public void completeLogin(String emailAdressVar,String passwordVar){
+    public void completeLogin(String emailAdressVar, String passwordVar) {
 
         emailAdress.sendKeys(emailAdressVar);
         password.sendKeys(passwordVar);
         registerButton.click();
-
-
     }
-
-    }
+}

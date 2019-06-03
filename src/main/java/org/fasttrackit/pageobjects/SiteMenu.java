@@ -39,14 +39,6 @@ public class SiteMenu {
         getMouseHoverClickForPrice(driver).click();
     }
 
-
-    public WebElement getSiteMenuBar(String nameCategories, WebDriver driver) {
-        return driver.findElement(By.linkText(nameCategories));
-
-    }
-    public void selectSiteMenuBar(String nameCategories, WebDriver driver){
-        getSiteMenuBar(nameCategories,driver).click();
-    }
     @FindBy(css = "h1")
     private WebElement checkPage;
 

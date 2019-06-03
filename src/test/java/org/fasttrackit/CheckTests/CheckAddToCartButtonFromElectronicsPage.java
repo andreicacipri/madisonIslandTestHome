@@ -1,4 +1,7 @@
-package org.fasttrackit;
+package org.fasttrackit.CheckTests;
+
+import org.fasttrackit.AppConfig;
+import org.fasttrackit.TestBase;
 import org.fasttrackit.pageobjects.ProductsGrid;
 import org.fasttrackit.pageobjects.SiteMenu;
 import org.junit.Test;
@@ -19,12 +22,13 @@ public class CheckAddToCartButtonFromElectronicsPage extends TestBase {
 
         ProductsGrid productsGrid = PageFactory.initElements(driver, ProductsGrid.class);
         String productName = "Madison 8GB Digital Media Player";
-        productsGrid.getAddToCartButton(productName,driver);
-        productsGrid.clickOnAddToCartButon(productName,driver);
+        productsGrid.getAddToCartButton(productName, driver);
+        productsGrid.clickOnAddToCartButon(productName, driver);
         driver.manage().timeouts().implicitlyWait(AppConfig.getTimeout(), TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(AppConfig.getTimeout(), TimeUnit.SECONDS);
+
         String product = driver.findElement(By.xpath("//tbody //tr//td//h2//a")).getText();
-        assertThat("Add to cart not succeeded",product,is(productName.toUpperCase()));
+        assertThat("Add to cart not succeeded", product, is(productName.toUpperCase()));
     }
 }
 

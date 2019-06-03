@@ -18,10 +18,10 @@ public class ProductsGrid {
         return productNameContainers;
     }
 
-    public List<String> getProductNames(){
+    public List<String> getProductNames() {
 
         List<String> names = new ArrayList<>();
-        for(WebElement nameContainers: productNameContainers ){
+        for (WebElement nameContainers : productNameContainers) {
             String name = nameContainers.getText();
             names.add(name);
         }
@@ -29,27 +29,35 @@ public class ProductsGrid {
     }
 
     public WebElement getAddToWishlistButton(String productName, WebDriver driver) {
-        return driver.findElement(By.xpath("//div[@class='product-info'and .//a[text()='"+productName+"']]//ul[@class='add-to-links']//a[text()='Add to Wishlist']"));
+        return driver.findElement(By.xpath("//div[@class='product-info'and .//a[text()='" + productName + "']]//ul[@class='add-to-links']//a[text()='Add to Wishlist']"));
     }
 
-    public void clickOnAddToWishlistButton(String productName, WebDriver driver){
-        getAddToWishlistButton(productName,driver).click();
+    public void clickOnAddToWishlistButton(String productName, WebDriver driver) {
+        getAddToWishlistButton(productName, driver).click();
     }
 
     public WebElement getAddToCartButton(String productName, WebDriver driver) {
         return driver.findElement(By.xpath("//div[@class='product-info'and .//a[text()='" + productName + "']]//button[@title='Add to Cart']"));
     }
 
-    public void clickOnAddToCartButon(String productName, WebDriver driver){
-        getAddToCartButton(productName,driver).click();
+    public void clickOnAddToCartButon(String productName, WebDriver driver) {
+        getAddToCartButton(productName, driver).click();
     }
 
-    public WebElement getAdditionalAddToCartButton(String productName, WebDriver driver) {
+    public WebElement getAddToCartButtonFromWishlist(String productName, WebDriver driver) {
+        return driver.findElement(By.xpath("//a[text()='Add to Cart' and //p[@class='product-name' and //a[text()='" + productName + "']]]"));
+    }
+
+    public void clickOnAddToCartButonFromWishlist(String productName, WebDriver driver) {
+        getAddToCartButtonFromWishlist(productName, driver).click();
+    }
+
+    public WebElement getAdditionalAddToCartButton(WebDriver driver) {
         return driver.findElement(By.xpath("//div[@class='map-popup-checkout']//button[@title='Add to Cart']"));
     }
 
-    public void clickOnAdditionalAddToCartButon(String productName, WebDriver driver){
-        getAdditionalAddToCartButton(productName,driver).click();
+    public void clickOnAdditionalAddToCartButon(WebDriver driver) {
+        getAdditionalAddToCartButton(driver).click();
     }
 
     public WebElement getViewDetailsButton(String productName, WebDriver driver) {
@@ -61,36 +69,36 @@ public class ProductsGrid {
         return driver.findElement(By.cssSelector("a.list"));
     }
 
-    public void clickOnListViewButton(WebDriver driver){
+    public void clickOnListViewButton(WebDriver driver) {
         getViewAsListButton(driver).click();
 
     }
+
     public WebElement getViewAsGridButton(WebDriver driver) {
         return driver.findElement(By.cssSelector("a.grid"));
     }
 
-    public void clickOnGridViewButton(WebDriver driver){
+    public void clickOnGridViewButton(WebDriver driver) {
         getViewAsGridButton(driver).click();
 
     }
 
-    public void clickOnViewDetails(String productName, WebDriver driver){
-        getViewDetailsButton(productName,driver).click();
+    public void clickOnViewDetails(String productName, WebDriver driver) {
+        getViewDetailsButton(productName, driver).click();
     }
+
     @FindBy(css = ".h1")
     private WebElement checkPage;
 
-
-    public String  HeaderCheckPage(){
+    public String HeaderCheckPage() {
         return checkPage.getText();
 
     }
 
-    @FindBy(xpath= "//div[@class='count-container']/p/strong")
+    @FindBy(xpath = "//div[@class='count-container']/p/strong")
     private WebElement checkElementsOnThePage;
 
-
-    public String  checkTheNumberOfElements(){
+    public String checkTheNumberOfElements() {
         return checkElementsOnThePage.getText();
 
     }

@@ -1,4 +1,4 @@
-package org.fasttrackit.ViewsTests;
+package org.fasttrackit.CheckTests;
 
 import org.fasttrackit.AppConfig;
 import org.fasttrackit.TestBase;
@@ -22,18 +22,17 @@ public class CheckAddToWhislistButton extends TestBase {
 
         SiteMenu AccountMenu = PageFactory.initElements(driver, SiteMenu.class);
         String nameSubCategories = "Log In";
-        AccountMenu.selectAccountMenuBar(nameSubCategories,driver);
-        String currentPage = AccountMenu.getAccountMenuBar(nameSubCategories,driver).getAttribute("title");
-        System.out.println("Opened "+currentPage+" page!");
+        AccountMenu.selectAccountMenuBar(nameSubCategories, driver);
+        String currentPage = AccountMenu.getAccountMenuBar(nameSubCategories, driver).getAttribute("title");
+        System.out.println("Opened " + currentPage + " page!");
 
         LoginField registerField = PageFactory.initElements(driver, LoginField.class);
         String emailAdressVar = "CipA@yahoo.com";
-        String passwordVar ="car56pole";
-
-        registerField.completeLogin(emailAdressVar,passwordVar);
+        String passwordVar = "car56pole";
+        registerField.completeLogin(emailAdressVar, passwordVar);
         driver.manage().timeouts().setScriptTimeout(AppConfig.getTimeout(), TimeUnit.SECONDS);
-        driver.manage().timeouts().setScriptTimeout(AppConfig.getTimeout(),TimeUnit.SECONDS);
-        driver.manage().timeouts().setScriptTimeout(AppConfig.getTimeout(),TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(AppConfig.getTimeout(), TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(AppConfig.getTimeout(), TimeUnit.SECONDS);
 
         SiteMenu siteMenu = PageFactory.initElements(driver, SiteMenu.class);
         siteMenu.getMouseHover(driver);
@@ -41,17 +40,16 @@ public class CheckAddToWhislistButton extends TestBase {
 
         ProductsGrid Whislist = PageFactory.initElements(driver, ProductsGrid.class);
         String productName = "Madison Earbuds";
-        Whislist.clickOnAddToWishlistButton(productName,driver);
+        Whislist.clickOnAddToWishlistButton(productName, driver);
         driver.manage().timeouts().setScriptTimeout(AppConfig.getTimeout(), TimeUnit.SECONDS);
-        driver.manage().timeouts().setScriptTimeout(AppConfig.getTimeout(),TimeUnit.SECONDS);
-        driver.manage().timeouts().setScriptTimeout(AppConfig.getTimeout(),TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(AppConfig.getTimeout(), TimeUnit.SECONDS);
+        driver.manage().timeouts().setScriptTimeout(AppConfig.getTimeout(), TimeUnit.SECONDS);
 
 
-        String reviewVariable ="Madison Earbuds has been added to your wishlist.";
-
-       String product = driver.findElement(By.xpath("//li[@class='success-msg']//li//span[contains(text(), 'Madison Earbuds has been added to your wishlist.')]")).getText();
+        String checkProduct = "Madison Earbuds has been added to your wishlist.";
+        String product = driver.findElement(By.xpath("//li[@class='success-msg']//li//span[contains(text(), 'Madison Earbuds has been added to your wishlist.')]")).getText();
         System.out.println(product);
-       assertThat("Product was not added to wish list.",product.toUpperCase(),containsString(reviewVariable.toUpperCase()));
+        assertThat("Product was not added to wish list.", product.toUpperCase(), containsString(checkProduct.toUpperCase()));
 
     }
 }

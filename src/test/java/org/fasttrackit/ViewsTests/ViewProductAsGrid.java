@@ -18,16 +18,14 @@ public class ViewProductAsGrid extends TestBase {
         siteMenu.getMouseHover(driver);
         siteMenu.clickMouseHoverElectronics(driver);
 
-            ProductsGrid productsGrid = PageFactory.initElements(driver,ProductsGrid.class);
-            productsGrid.clickOnListViewButton(driver);
-        String newView = driver.findElement(By.cssSelector("strong.list")).getText();
-        String correctView = "List";
-        assertThat("the products are still in Grid view. ", newView.toUpperCase(),is(correctView.toUpperCase()));
+        ProductsGrid productsGrid = PageFactory.initElements(driver, ProductsGrid.class);
+        productsGrid.clickOnListViewButton(driver);
 
-            productsGrid.clickOnGridViewButton(driver);
-            String newView1 = driver.findElement(By.cssSelector("strong.grid")).getText();
-            String correctView1 = "Grid";
-            assertThat("the products are still in List view. ", newView1.toUpperCase(),is(correctView1.toUpperCase()));
-        }
+        productsGrid.clickOnGridViewButton(driver);
+        String actualView = driver.findElement(By.cssSelector("strong.grid")).getText();
+        String correctView = "Grid";
 
+        assertThat("the products are still in List view. ", actualView.toUpperCase(), is(correctView.toUpperCase()));
     }
+
+}
