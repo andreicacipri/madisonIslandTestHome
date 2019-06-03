@@ -19,9 +19,9 @@ public class ViewProductAsGrid extends TestBase {
         siteMenu.clickMouseHoverElectronics(driver);
 
         ProductsGrid productsGrid = PageFactory.initElements(driver, ProductsGrid.class);
-        productsGrid.clickOnListViewButton(driver);
+        productsGrid.clickOnListViewButton();
 
-        productsGrid.clickOnGridViewButton(driver);
+        productsGrid.clickOnGridViewButton();
         String actualView = driver.findElement(By.cssSelector("strong.grid")).getText();
         String correctView = "Grid";
 

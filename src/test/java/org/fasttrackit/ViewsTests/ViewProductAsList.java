@@ -18,7 +18,7 @@ public class ViewProductAsList extends TestBase {
         siteMenu.clickMouseHoverElectronics(driver);
 
         ProductsGrid productsGrid = PageFactory.initElements(driver, ProductsGrid.class);
-        productsGrid.clickOnListViewButton(driver);
+        productsGrid.clickOnListViewButton();
 
         String newView = driver.findElement(By.cssSelector("strong.list")).getText();
         String correctView = "List";

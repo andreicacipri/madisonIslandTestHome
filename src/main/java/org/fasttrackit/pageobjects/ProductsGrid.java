@@ -65,26 +65,25 @@ public class ProductsGrid {
                 "//div[@class='product-info'and .//a[@title='" + productName + "']]//a[@class='button']"));
     }
 
-    public WebElement getViewAsListButton(WebDriver driver) {
-        return driver.findElement(By.cssSelector("a.list"));
-    }
-
-    public void clickOnListViewButton(WebDriver driver) {
-        getViewAsListButton(driver).click();
-
-    }
-
-    public WebElement getViewAsGridButton(WebDriver driver) {
-        return driver.findElement(By.cssSelector("a.grid"));
-    }
-
-    public void clickOnGridViewButton(WebDriver driver) {
-        getViewAsGridButton(driver).click();
-
-    }
-
     public void clickOnViewDetails(String productName, WebDriver driver) {
         getViewDetailsButton(productName, driver).click();
+    }
+
+
+    @FindBy(css = "a.list")
+    private WebElement getViewAsListButton;
+
+    public String clickOnListViewButton() {
+        return getViewAsListButton.getText();
+    }
+
+    @FindBy(css = "a.grid")
+    private WebElement getViewAsGridButton;
+
+
+    public String clickOnGridViewButton() {
+        return getViewAsGridButton.getText();
+
     }
 
     @FindBy(css = ".h1")
